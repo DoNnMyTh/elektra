@@ -142,7 +142,7 @@ SimpleNavigation::Configuration.run do |navigation|
                           highlights_on: -> { params[:controller][%r{lbaas/?.*}] }
       networking_nav.item :lbaas2,
                           'LBaaS2',
-                          -> { plugin('lbaas2').loadbalancers_path },
+                          -> { plugin('lbaas2').root_path },
                           if: -> { plugin_available?(:lbaas2) && services.available?(:lbaas2) && current_user.is_allowed?('cloud_admin_or_support') && current_region == 'qa-de-1' },
                           highlights_on: -> { params[:controller][%r{lbaas2/?.*}] }
       networking_nav.item :dns_service,
